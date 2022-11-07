@@ -1,23 +1,35 @@
-import logo from './logo.svg';
 import './App.css';
+import { lazy, Suspense, useState, useEffect } from "react";
+import { AnimatePresence } from 'framer-motion'
+import { StateContext } from './context/StateContext'
+
+const Home = lazy(() => import("./pages/Home"));
+const Header = lazy(() => import("./components/Header"));
+const Loader = lazy(() => import("./components/Loader"));
+const Footer = lazy(() => import("./components/Footer"));
+const ScrollToTop = lazy(() => import("./components/ScrollToTop"));
 
 function App() {
+  const [loading, setloading] = useState(false)
+  useEffect(() => {
+    setTimeout(() => {
+      setloading(true)
+    }, 3000);
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <StateContext>
+        <AnimatePresence>
+          {loading ? null : <Loader />}
+        </AnimatePresence>
+       <Suspense fallback={null} >
+            <ScrollToTop />
+            <Header />
+            <Home />
+            <Footer />
+        </Suspense>
+      </StateContext>
     </div>
   );
 }

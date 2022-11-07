@@ -1,38 +1,338 @@
-.App {
-  text-align: center;
+:root {
+  --background: #eff7f9;
+  --black: #0a0b10;
+  --purple: #803bec;
+  --pink: #e5a1f8;
+  --orange: #d16309;
+  --org:#ff7f2a;
+  --white: #fff;
+  --nav: #35353f;
+  --darkblue:#03446A;
+  --nav2: #3f3d56;
+}
+.aktv{
+  background-color: var(--orange);
+  padding: 5px 8px;
+  border-radius: 10px;
+  cursor:default;
+}
+.dektv{
+  box-shadow: var(--orange) 0px 0px 5px 2px;
+  padding: 5px 8px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.action{
+  touch-action: none;
+  overflow: hidden;
+  position: fixed;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.heder {
+  position: fixed;
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
+  gap: 10px;
+  background-color: var(--black);
+  z-index: 999;
+  top: 0;
+}
+
+.head {
+  position: fixed;
+  z-index: 999;
+}
+
+.bgblack {
+  background-color: black;
+}
+
+.heder-kontakt {
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: white;
+  padding: 0px 70px;
+}
+
+[data-scroll-container] {
+  perspective: 999999px !important;
+}
+
+.heder-info {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.heder-info .kontaktbtn {
+  height: 20px;
+}
+
+.meni-fixed {
+  height: 70px;
+}
+
+.heder-meni {
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.151);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: transparent;
   color: white;
+  padding: 0px 70px;
+  height: 70px;
+  width: 100vw;
 }
 
-.App-link {
-  color: #61dafb;
+.heder-meni .logo {
+  font-family: "Raleway", sans-serif;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.logo:hover {
+  transform: scale(1.1);
+}
+
+.meni {
+  display: flex;
+  align-items: center;
+  gap: 20px
+}
+
+.menifon {
+  display: none;
+}
+
+.meni-text {
+  font-size: 18px;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.meni-text::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2.5px;
+  background-color: var(--orange);
+  bottom: -5px;
+  left: 0;
+  transform-origin: bottom right;
+  transition: transform 0.3s ease-out;
+}
+
+.meni-text:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.kontaktbtn {
+  border: none;
+  display: block;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  font-size: 15px;
+  background-color: #0000005c;
+  padding: 15px 50px;
+  margin: 0 auto;
+  box-shadow: var(--orange) 2px 2px 22px;
+}
+
+.kontaktbtn span {
+  position: relative;
+  z-index: 1;
+}
+
+.kontaktbtn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 490%;
+  width: 170%;
+  background: var(--orange);
+  -webkit-transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out;
+  -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  transform: translateX(-98%) translateY(-25%) rotate(45deg);
+}
+
+.kontaktbtn:hover:after {
+  -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  transform: translateX(-9%) translateY(-25%) rotate(45deg);
+
+}
+
+/*stajl za kucum*/
+.hero-text {
+  margin-top: 15%;
+  background-color: #080808c1;
+  max-width: 600px;
+  height: 40%;
+  padding: 20px 100px;
+  color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.hero-text h2 {
+  font-size: 30px;
+}
+
+/* footer */
+
+.btn-txt {
+  margin-top: 20px;
+  margin-left: 30px;
+  padding: 10px 30px;
+  background-color: rgba(0, 0, 0, 0.701);
+  border: none;
+  box-shadow: var(--main-color) 3px 3px 32px;
+  color: white;
+  font-size: 20px;
+}
+
+.btn-txt:hover {
+  animation: rotate 0.7s ease-in-out both
+}
+
+@import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
+body {
+  background: #eee;
+  font-family: 'Lily Script One';
+}
+
+.card {
+  position: relative;
+  min-width: 300px;
+  min-height: 300px;
+  
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card:hover .content {
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  color: #03446A;
+  text-align: center;
+  border-radius: 5px;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.back {
+  background: #03446A;
+  color: white;
+  transform: rotateY( 180deg );
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg) translate3d(0, 0, 0)
   }
-  to {
-    transform: rotate(360deg);
+
+  25% {
+    transform: rotate(3deg) translate3d(0, 0, 0)
+  }
+
+  50% {
+    transform: rotate(-3deg) translate3d(0, 0, 0)
+  }
+
+  75% {
+    transform: rotate(1deg) translate3d(0, 0, 0)
+  }
+
+  100% {
+    transform: rotate(0deg) translate3d(0, 0, 0)
+  }
+}
+
+@media screen and (max-width:800px) {
+  .heder-meni{
+    padding: 0 10px;
+  }
+  .meni {
+    display: none;
+  }
+
+  .menifon {
+    display: block;
+    font-size: 30px;
+  }
+
+  .menifon p {
+    cursor: pointer;
+  }
+
+  .menuwraper {
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    z-index: 9999999;
+    /* will-change: transform; */
+    transition: all 1s ease-in-out;
+  }
+
+  .fonlinkcont {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    background: #000;
+    float: right;
+    width: 70%;
+    height: 100vh;
+  }
+
+  .fonlinkcont h3 {
+    margin: 2px;
+  }
+
+  .fonlinkcont p {
+    margin-top: 20px;
+    cursor: pointer;
+  }
+
+  .hero-text {
+    margin-top: 30%;
   }
 }
